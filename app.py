@@ -40,4 +40,4 @@ def get_key_by_value(dictionary, value):
     return None
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port = 8080)
