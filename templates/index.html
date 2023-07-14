@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UUID Verification</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function verifyUUID() {
+            var uuid = "ae81ee4e-2cf1-4d8a-ba3b-f179e7309972";  // Replace with the actual UUID to verify
+
+            $.ajax({
+                url: "/verify/" + uuid,
+                type: "GET",
+                success: function(response) {
+                    if (response.status === "verified") {
+                        $("#result").text("UUID verified");
+                    } else {
+                        $("#result").text("Error verifying UUID");
+                    }
+                },
+                error: function() {
+                    $("#result").text("Error verifying UUID");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>UUID Verification</h1>
+    <button onclick="verifyUUID()">Verify UUID</button>
+    <p id="result"></p>
+</body>
+</html>
